@@ -35,9 +35,8 @@ html {
 nav a:hover {
   border-bottom: 0.4em solid var(--color-accent);
   padding-bottom: 0.1em;
-  background-color: oklch(from var(--color-accent) 95% 5% h);
+  background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
 }
-
 input, textarea, button {
   font: inherit;
 }
@@ -117,4 +116,29 @@ article header p {
 time {
   color: oklch(50% 3% 200);
   font-size: 0.9em;
+}
+
+html {
+  color-scheme: light dark;
+}
+
+nav {
+  --border-color: oklch(50% 10% 200 / 40%);
+  border-bottom-color: var(--border-color);
+}
+
+nav a.current {
+  border-bottom-color: var(--border-color);
+}
+
+.color-scheme {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 80%;
+  font-family: inherit;
+}
+
+input, textarea, button, select {
+  font: inherit;
 }
