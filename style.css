@@ -142,3 +142,25 @@ nav a.current {
 input, textarea, button, select {
   font: inherit;
 }
+
+#profile-stats h2 {
+  margin-bottom: 0.5em;
+}
+
+#profile-stats dl {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+#profile-stats dt {
+  grid-row: 1;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  color: oklch(50% 3% 200);
+}
+
+#profile-stats dd {
+  grid-row: 2;
+  font-size: 2em;
+  margin: 0;
+}
