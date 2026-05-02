@@ -1,7 +1,4 @@
 body {
-  /* Set line height to 1.5 times the font size
-	   and use the OS’s UI font as the website font
-	 */
   font: 100%/1.5 system-ui;
   max-width: 100ch;
   margin-inline: auto;
@@ -9,9 +6,11 @@ body {
 }
 
 nav {
+  --border-color: oklch(50% 10% 200 / 40%);
   display: flex;
   margin-bottom: 1em;
   border-bottom: 1px solid oklch(80% 3% 200);
+  border-bottom-color: var(--border-color);
 }
 
 nav a {
@@ -24,12 +23,14 @@ nav a {
 
 nav a.current {
   border-bottom: 0.4em solid oklch(80% 3% 200);
+  border-bottom-color: var(--border-color);
   padding-bottom: 0.1em;
 }
 
 html {
   --color-accent: oklch(65% 50% 0);
   accent-color: var(--color-accent);
+  color-scheme: light dark;
 }
 
 nav a:hover {
@@ -37,7 +38,8 @@ nav a:hover {
   padding-bottom: 0.1em;
   background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
 }
-input, textarea, button {
+
+input, textarea, button, select {
   font: inherit;
 }
 
@@ -83,7 +85,6 @@ h1, h2, h3, h4, h5, h6 {
   text-wrap: balance;
 }
 
-
 /* CV sections */
 section {
   margin-block: 2em;
@@ -118,29 +119,12 @@ time {
   font-size: 0.9em;
 }
 
-html {
-  color-scheme: light dark;
-}
-
-nav {
-  --border-color: oklch(50% 10% 200 / 40%);
-  border-bottom-color: var(--border-color);
-}
-
-nav a.current {
-  border-bottom-color: var(--border-color);
-}
-
 .color-scheme {
   position: absolute;
   top: 1rem;
   right: 1rem;
   font-size: 80%;
   font-family: inherit;
-}
-
-input, textarea, button, select {
-  font: inherit;
 }
 
 #profile-stats h2 {
@@ -163,4 +147,69 @@ input, textarea, button, select {
   grid-row: 2;
   font-size: 2em;
   margin: 0;
+}
+
+.project-year {
+  color: oklch(50% 3% 200);
+  font-size: 0.9em;
+  font-style: italic;
+}
+
+#projects-pie-plot {
+  max-width: 20em;
+  margin-block: 2em;
+  overflow: visible;
+  flex-shrink: 0;
+}
+
+.legend {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
+  gap: 1em;
+  padding: 1em;
+  margin: 1em 0;
+  border: 1px solid oklch(80% 3% 200);
+  list-style: none;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.swatch {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  background-color: var(--color);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  width: 100%;
+}
+
+.container .legend {
+  flex: 1;
+}
+
+#projects-pie-plot:has(path:hover) path:not(:hover) {
+  opacity: 0.5;
+}
+
+#projects-pie-plot path {
+  transition: 300ms;
+  cursor: pointer;
+}
+
+.selected {
+  --color: oklch(60% 45% 0) !important;
+}
+
+.selected:is(path) {
+  fill: var(--color);
 }
