@@ -292,3 +292,9 @@ dl.info[hidden]:not(:hover, :focus-within) {
 circle.selected {
   fill: #ff6b6b;
 }
+
+.projects article img {
+  width: 100%;
+  height: 15em;
+  object-fit: cover;
+}
