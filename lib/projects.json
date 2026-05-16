@@ -2,7 +2,7 @@
     {
     "title": "Bikewatching",
     "year": "2026",
-    "image": "https://dodozai11.github.io/bikewatching/assets/screenshot.PNG",
+    "image": "https://dodozai11.github.io/bikewatching/assets/screenshot.png",
     "url": "https://dodozai11.github.io/bikewatching/",
     "description": "An interactive map visualization of bike traffic in the Boston area using Mapbox and D3. Shows bike lanes, station traffic volume, and traffic flow direction with a time filter slider."
     },
